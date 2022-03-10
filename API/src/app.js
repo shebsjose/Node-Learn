@@ -1,14 +1,15 @@
 const express = require("express");
-require("../src/database/connection");
-
-const router = require("../src/routers/mens");
-
 const app = express();
 const port = 3500;
+const router = require("../src/routers/mens");
+require("../src/database/connection");
 
-//Get the Data From Postman
+
+//Middleware
 app.use(express.json());
-app.use(router);
+
+//Routes
+app.use("/mens",router);
 
 app.listen(port, () => {
   console.log("Listening port on 3500");

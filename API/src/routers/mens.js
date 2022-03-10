@@ -4,7 +4,7 @@ const router = new express.Router();
 const MensRanking = require("../models/mens");
 
 //Create and Handle The Post Request.
-router.post("/mens", async (req, res) => {
+router.post("/create", async (req, res) => {
   try {
     const addingMensRank = new MensRanking(req.body);
     console.log(req.body);
@@ -16,7 +16,7 @@ router.post("/mens", async (req, res) => {
 });
 
 // Read the data
-router.get("/mens", async (req, res) => {
+router.get("/read", async (req, res) => {
   try {
     const getMens = await MensRanking.find({}).sort({ ranking: 1 });
     res.send(getMens);
@@ -26,7 +26,7 @@ router.get("/mens", async (req, res) => {
 });
 
 // Get data by _id, name and so on.
-router.get("/mens/:id", async (req, res) => {
+router.get("/read/:id", async (req, res) => {
   try {
     const _id = req.params.id;
     const getMen = await MensRanking.findById(_id);
@@ -37,7 +37,7 @@ router.get("/mens/:id", async (req, res) => {
 });
 
 // Update the data by _id, name and so on.
-router.patch("/mens/:id", async (req, res) => {
+router.patch("/update/:id", async (req, res) => {
   try {
     const _id = req.params.id;
     const getMen = await MensRanking.findByIdAndUpdate(_id, req.body, {
@@ -50,11 +50,11 @@ router.patch("/mens/:id", async (req, res) => {
 });
 
 // Delete the data by _id, name and so on.
-router.delete("/mens/:id", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   try {
     // const _id = req.params.id;
-    const getMen = await MensRanking.findByIdAndUDelete(req.params.id);
-    res.send(getMen);
+    await MensRanking.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "user deleted" });
   } catch (error) {
     res.status(500).send(error);
   }
