@@ -1,11 +1,27 @@
 {
-  "name": "node-js",
+  "name": "Node-Learn",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shebsjose/Node-Learn.git"
+  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shebsjose/Node-Learn/issues"
+  },
+  "homepage": "https://github.com/shebsjose/Node-Learn#readme"
 }
